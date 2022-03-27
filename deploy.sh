@@ -8,5 +8,8 @@ pm2 stop example_app
 cd SimpleApplication/
 # Install application dependencies
 npm install
+# Ensure private key and server key from CircleCi are passed to application
+echo $PRIVATE_KEY > privatekey.pem
+echo $SERVER > server.crt
 # Start the application with the process name example_app using pm2
 pm2 start ./bin/www --name example_app
